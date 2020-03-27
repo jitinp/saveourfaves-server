@@ -10,6 +10,9 @@ ENV PYTHONUNBUFFERED 1
 
 ENV PG_VERSION=11
 
+# copy project
+COPY . /usr/local/site/
+
 # install psycopg2 dependencies
 RUN set -ex \
     && apt-get update \
@@ -27,9 +30,7 @@ RUN set -ex \
 # install dependencies
 RUN set -ex && \
     pip install --upgrade pip
-COPY ./requirements.txt /usr/local/site/requirements.txt
 RUN set -ex && \
     pip install -r requirements.txt
 
-# copy project
-COPY . /usr/local/site/
+EXPOSE 8000
