@@ -6,4 +6,4 @@ pandas
 requests
 ipython
 python-dotenv
-corsheaders
+django-cors-headers
