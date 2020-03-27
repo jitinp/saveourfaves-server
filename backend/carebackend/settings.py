@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'places.apps.PlacesConfig'
+    'places.apps.PlacesConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'carebackend.urls'
@@ -143,8 +145,11 @@ LOGGING = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/django-static/'
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), './django-static/')
+# STATIC_URL = '/django-static/'
+# STATIC_ROOT = os.path.join(os.path.dirname(__file__), './django-static/')
+STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 465
